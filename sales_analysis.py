@@ -1,45 +1,34 @@
 import pandas as pd
 
 # Load dataset
-try:
-    df = pd.read_csv("sales_data.csv")
-except FileNotFoundError:
-    print("File not found. Check file path.")
-    exit()
+df = pd.read_csv("sales_data.csv")
 
 print("Dataset Preview:")
 print(df.head())
 
-# Show columns
-print("\nColumns:", df.columns)
-
 # Handle missing values
-df = df.dropna()
+df.fillna(0, inplace=True)
 
-# Convert Sales column safely
-if 'Sales' in df.columns:
-    df['Sales'] = pd.to_numeric(df['Sales'], errors='coerce')
-else:
-    print("Sales column not found!")
-    exit()
+# Convert Total_Sales column
+df['Total_Sales'] = pd.to_numeric(df['Total_Sales'], errors='coerce')
 
-df = df.dropna()
+# Remove invalid rows
+df.dropna(inplace=True)
 
-# Check if data exists
-if df.empty:
-    print("No data available after cleaning!")
-    exit()
+# 🔹 Metric 1: Total Sales
+total_sales = df['Total_Sales'].sum()
 
-# Metrics
-total_sales = df['Sales'].sum()
+# 🔹 Metric 2: Best-Selling Product
+best_product = df.groupby('Product')['Total_Sales'].sum().idxmax()
 
-best_product = df.groupby('Product')['Sales'].sum().idxmax() if 'Product' in df.columns else "N/A"
+# 🔹 Metric 3: Average Sales
+average_sales = df['Total_Sales'].mean()
 
-average_sales = df['Sales'].mean()
+# 🔹 Metric 4: Total Quantity Sold
+total_quantity = df['Quantity'].sum()
 
-total_quantity = df['Quantity'].sum() if 'Quantity' in df.columns else "N/A"
-
-top_products = df.groupby('Product')['Sales'].sum().sort_values(ascending=False).head(3) if 'Product' in df.columns else "N/A"
+# 🔹 Metric 5: Top 3 Products
+top_products = df.groupby('Product')['Total_Sales'].sum().sort_values(ascending=False).head(3)
 
 # Output
 print("\n--- Sales Analysis Report ---")
