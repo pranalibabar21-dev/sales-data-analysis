@@ -1,0 +1,48 @@
+# 📊 Sales Data Analysis Report
+
+## 📌 Project Overview
+This project analyzes a sales dataset using Python and pandas to extract meaningful insights such as total sales, best-selling product, and other key metrics.
+
+## 🎯 Objectives
+- Analyze sales data
+- Handle missing values
+- Generate insights from real data
+- Create a simple report
+
+## ⚙️ Setup Instructions
+1. Install Python
+2. Install pandas:
+   pip install pandas
+3. Run the script:
+   python sales_analysis.py
+
+## 📂 Code Structure
+- sales_analysis.py → main analysis script
+- sales_data.csv → dataset
+- analysis_report.md → documentation
+
+## 🔍 Analysis Steps
+1. Loaded dataset using pandas
+2. Cleaned missing values using dropna()
+3. Converted columns to correct data types
+4. Calculated metrics:
+   - Total Sales
+   - Best-selling Product
+   - Average Sales
+   - Total Quantity
+   - Top 3 products
+
+## 📈 Findings
+- Total Sales: (output value)
+- Best Product: (output value)
+- Average Sales: (output value)
+- Top Products identified
+
+## ✅ Technical Requirements Met
+✔ Used pandas for analysis  
+✔ Handled missing values  
+✔ Calculated multiple metrics  
+✔ Generated report
+
+## 📌 Conclusion
+The project successfully demonstrates basic data analysis using pandas and provides useful business insights.
