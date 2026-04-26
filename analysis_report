@@ -33,10 +33,14 @@ This project analyzes a sales dataset using Python and pandas to extract meaning
    - Top 3 products
 
 ## 📈 Findings
-- Total Sales: (output value)
-- Best Product: (output value)
-- Average Sales: (output value)
-- Top Products identified
+- Total Sales: (12365048)
+- Best Product: (Laptop)
+- Average Sales: (123650.48)
+- Total Quantity Sold: 478
+- Top Products identified:
+Laptop    3889210
+Tablet    2884340
+Phone     2859394
 
 ## ✅ Technical Requirements Met
 ✔ Used pandas for analysis  
